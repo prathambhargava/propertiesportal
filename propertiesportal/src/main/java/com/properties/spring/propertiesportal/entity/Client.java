@@ -1,20 +1,14 @@
 package com.properties.spring.propertiesportal.entity;
 
-
-
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-import jakarta.persistence.Entity;
-import lombok.Data;
-
-@Document
-@Entity
+@Document(collection = "clients")
 public class Client {
-    @Id
-    private String id;
+	@Id
+	private String id;
 
-    public String getId() {
+	public String getId() {
 		return id;
 	}
 
@@ -30,7 +24,18 @@ public class Client {
 		this.clientId = clientId;
 	}
 
-	private String clientId;
+	public String getClientName() {
+		return clientName;
+	}
 
-    // Getters and setters
+	public void setClientName(String clientName) {
+		this.clientName = clientName;
+	}
+
+	private String clientId;
+	private String clientName;
+
+	public Client orElse(Object object) {
+		return null;
+	}
 }

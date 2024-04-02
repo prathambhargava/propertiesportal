@@ -1,20 +1,15 @@
 package com.properties.spring.propertiesportal.entity;
 
-
-
 import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-import jakarta.persistence.Entity;
-
-@Document
-@Entity
+@Document(collection = "module")
 public class Module {
-    @Id
-    private String id;
 
-    public String getId() {
+	@Id
+	private String id;
+
+	public String getId() {
 		return id;
 	}
 
@@ -22,26 +17,31 @@ public class Module {
 		this.id = id;
 	}
 
+	public String getModuleId() {
+		return moduleId;
+	}
+
+	public void setModuleId(String moduleId) {
+		this.moduleId = moduleId;
+	}
+
 	public String getModuleName() {
-		return moduleName;
+		return ModuleName;
 	}
 
 	public void setModuleName(String moduleName) {
-		this.moduleName = moduleName;
+		ModuleName = moduleName;
 	}
 
-	public Client getClient() {
-		return client;
+	public String getClientId() {
+		return clientId;
 	}
 
-	public void setClient(Client client) {
-		this.client = client;
+	public void setClientId(String clientId) {
+		this.clientId = clientId;
 	}
 
-	private String moduleName;
-
-    @DBRef
-    private Client client;
-
-    // Getters and setters
+	private String moduleId;
+	private String ModuleName;
+	private String clientId;
 }
